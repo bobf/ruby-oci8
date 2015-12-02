@@ -240,8 +240,9 @@ void oci8_unlink_from_parent(oci8_base_t *base)
 
 static void oci8_unblock_func(void *user_data)
 {
-    oci8_svcctx_t *svcctx = (oci8_svcctx_t *)user_data;
-    OCIBreak(svcctx->base.hp.ptr, oci8_errhp);
+    // https://github.com/kubo/ruby-oci8/issues/86#issuecomment-121946203
+    //oci8_svcctx_t *svcctx = (oci8_svcctx_t *)user_data;
+    //OCIBreak(svcctx->base.hp.ptr, oci8_errhp);
 }
 
 typedef struct free_temp_lob_arg_t {
